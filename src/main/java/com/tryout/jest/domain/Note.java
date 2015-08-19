@@ -10,11 +10,11 @@ public class Note implements Serializable {
 
     @JestId
     private String id;
-    
+
     private String note;
-    
+
     private Date createdOn;
-    
+
     private String userName;
 
     public Note(final String userName, final String note) {
@@ -57,8 +57,8 @@ public class Note implements Serializable {
 
     @Override
     public String toString() {
-        return "Note [id=" + id + ", note=" + note + ", createdOn=" + createdOn + ", userName=" + userName
-                + "]";
+        return "Note [id=" + id + ", note=" + note + ", createdOn=" + createdOn
+                + ", userName=" + userName + "]";
     }
 
 }
