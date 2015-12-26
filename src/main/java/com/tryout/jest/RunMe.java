@@ -4,7 +4,6 @@ import io.searchbox.client.JestClient;
 import io.searchbox.client.JestClientFactory;
 import io.searchbox.client.JestResult;
 import io.searchbox.client.JestResultHandler;
-import io.searchbox.client.config.ClientConfig;
 import io.searchbox.client.config.HttpClientConfig;
 import io.searchbox.core.Bulk;
 import io.searchbox.core.Index;
@@ -14,7 +13,7 @@ import io.searchbox.indices.DeleteIndex;
 
 import java.util.List;
 
-import org.elasticsearch.common.settings.ImmutableSettings;
+import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 
@@ -51,10 +50,10 @@ public class RunMe {
 
     private static void createTestIndex(final JestClient jestClient)
             throws Exception {
+
         // create new index (if u have this in elasticsearch.yml and prefer
         // those defaults, then leave this out
-        ImmutableSettings.Builder settings = ImmutableSettings
-                .settingsBuilder();
+        Settings.Builder settings = Settings.settingsBuilder();
         settings.put("number_of_shards", 3);
         settings.put("number_of_replicas", 0);
         jestClient.execute(new CreateIndex.Builder(DIARY_INDEX_NAME).settings(
