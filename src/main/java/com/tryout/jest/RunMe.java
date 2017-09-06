@@ -44,6 +44,7 @@ public class RunMe {
             }
 
         } catch (Exception ex) {
+            // dont do this in prod
             ex.printStackTrace();
         }
     }
@@ -53,7 +54,7 @@ public class RunMe {
 
         // create new index (if u have this in elasticsearch.yml and prefer
         // those defaults, then leave this out
-        Settings.Builder settings = Settings.settingsBuilder();
+        Settings.Builder settings = Settings.builder();
         settings.put("number_of_shards", 3);
         settings.put("number_of_replicas", 0);
         jestClient.execute(new CreateIndex.Builder(DIARY_INDEX_NAME).settings(
