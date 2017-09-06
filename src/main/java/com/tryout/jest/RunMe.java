@@ -121,6 +121,8 @@ public class RunMe {
                                 .type(NOTES_TYPE_NAME).build()).build();
         JestResult result = jestClient.execute(bulk);
 
+        // don't ever do this in production
+        // it is here for test and learn type of code
         Thread.sleep(2000);
 
         System.out.println(result.toString());
